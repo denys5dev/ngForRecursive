@@ -10,12 +10,14 @@ import { TestService } from './shared/test.service';
 
 export class AppComponent implements OnInit {
   nodes: any;
+  title: string;
 
   constructor(private _testService: TestService) {}
 
   ngOnInit() {
     this.nodes = treeView;
-    console.log(this.nodes);
+    this.title = "Hello Angular";
+
     this._testService.getTestData().subscribe(res => {
       console.log(res);
     })
