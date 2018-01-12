@@ -9,3 +9,15 @@
   </ng-template>
   <ng-container *ngTemplateOutlet="recursiveTree; context:{ $implicit: nodes }"></ng-container>
 </ul>
+
+
+<!-- <mat-list role="list">
+  <ng-template let-nodes #recursiveTree>
+    <mat-list-item role="listitem" *ngFor="let item of nodes">{{item.title}}
+      <mat-list role="list" *ngIf="item.children.length > 0">
+          <ng-container *ngTemplateOutlet="recursiveTree; context:{ $implicit: item.children }"></ng-container>
+      </mat-list>
+    </mat-list-item>
+  </ng-template>
+  <ng-container *ngTemplateOutlet="recursiveTree; context:{ $implicit: nodes }"></ng-container>
+</mat-list> -->
