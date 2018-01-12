@@ -1,0 +1,11 @@
+<ul>
+  <ng-template let-nodes #recursiveTree>
+    <li *ngFor="let item of nodes">
+      {{item.title}}
+      <ul *ngIf="item.children.length > 0">
+        <ng-container *ngTemplateOutlet="recursiveTree; context:{ $implicit: item.children }"></ng-container>
+      </ul>
+    </li>
+  </ng-template>
+  <ng-container *ngTemplateOutlet="recursiveTree; context:{ $implicit: nodes }"></ng-container>
+</ul>

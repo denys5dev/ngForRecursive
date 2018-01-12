@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { treeView } from './config/mock';
+
 import { TestService } from './shared/test.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -9,17 +10,21 @@ import { TestService } from './shared/test.service';
 })
 
 export class AppComponent implements OnInit {
-  nodes: any;
   title: string;
 
-  constructor(private _testService: TestService) {}
+  constructor(private _testService: TestService, private _router: Router) {}
 
   ngOnInit() {
-    this.nodes = treeView;
-    this.title = "Hello Angular";
+    this.title = "Angular 5 Helper";
 
     this._testService.getTestData().subscribe(res => {
       console.log(res);
     })
+  }
+  goHome() {
+    this._router.navigate(['/']);
+  }
+  showTree() {
+    this._router.navigate(['/tree']);
   }
 }

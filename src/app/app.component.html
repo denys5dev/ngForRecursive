@@ -1,12 +1,4 @@
 <h1>{{title}}</h1>
-<ul>
-  <ng-template let-nodes #recursiveTree>
-    <li *ngFor="let item of nodes">
-      {{item.id}}
-      <ul *ngIf="item.children.length > 0">
-        <ng-container *ngTemplateOutlet="recursiveTree; context:{ $implicit: item.children }"></ng-container>
-      </ul>
-    </li>
-  </ng-template>
-  <ng-container *ngTemplateOutlet="recursiveTree; context:{ $implicit: nodes }"></ng-container>
-</ul>
+<button mat-raised-button (click)="goHome()">Home</button>
+<button mat-raised-button color="warn" (click)="showTree()">Tree</button>
+<router-outlet></router-outlet>
